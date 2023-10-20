@@ -4,7 +4,7 @@
 
 replicaCount: 2
 configmap:
-  name: myhelmapp-configmap-v1
+  name: myhelmapp-configmap-v2
   data:
     CUSTOM_HEADER: 'This app was deployed with helm! dddd'
 image:
