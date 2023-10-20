@@ -28,6 +28,9 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
+          envFrom:
+          - configMapRef:
+              name: {{ .Values.configmap.name }}
           livenessProbe:
             httpGet:
               path: /
