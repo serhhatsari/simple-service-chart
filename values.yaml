@@ -3,7 +3,10 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 2
-
+configmap:
+  name: myhelmapp-configmap-v1
+  data:
+    CUSTOM_HEADER: 'This app was deployed with helm!'
 image:
   repository: gcr.io/heptio-images/ks-guestbook-demo
   tag: 0.1
