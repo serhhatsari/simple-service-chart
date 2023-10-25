@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: first-service
+  namespace: services
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    name: first-service
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/serhhatsari/simple-service-chart'
+    path: charts/first-app
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: services
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
