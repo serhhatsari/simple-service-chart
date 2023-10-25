@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: first-service
-  namespace: services
+  namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   labels:
